@@ -1,0 +1,29 @@
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  /* background: red; */
+  height: 70px;
+  /*box-shadow: 0px 6px 8px #88888850;*/
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .navbar-container {
+  padding: 20px;
+  /* margin: 15px; */
+}
+
+.navbar .navbar-container .navbar-container-left {
+  float: left;
+}
+
+ .navbar .navbar-container .navbar-container-left .logo {
+  height: 40px;
+} 
+
+.navbar .navbar-container .navbar-container-right {
+  float: right;
+}
