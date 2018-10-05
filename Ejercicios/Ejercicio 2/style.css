@@ -1,0 +1,24 @@
+.button {
+    background: red;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    background: rgb(51, 0, 145);
+    /* border: none; */
+}
+
+.button.success {
+    background: green;
+}
+
+.padre {
+
+}
+
+.hijo {
+    background: pink;
+}
+
+.padre .hijo {
+    background: orange;
+}

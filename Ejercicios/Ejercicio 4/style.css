@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.square {
+  width: 30px;
+  height: 30px;
+}
+
+.blue {
+  background: rgb(173, 216, 230);
+  /* busca al padre que tiene posicion relativa */
+  position: absolute;
+  /* a partir de la izquierda se mueve 50 % */
+  left: 50%;
+  /* a partir del tope se mueve 50 % */
+   top: 50%;
+}
+
+ .red {
+  background: rgb(255, 0, 0);
+   /* Si no existe .blue se va directamente hasta el body */
+   position: relative;
+}
+
+.container {
+    margin-top: 100px;
+    height: 300px;
+    background: lightcoral;
+    position: relative;
+}
+
+.container .button-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* nos permite modificar el elemento afectan a elemento*/
+    transform: translate(-50% -50%);
+}
+
+.button {
+    background: rgb(218, 218, 218);
+    padding: 5px;
+    border-radius: 7px;
+}
+

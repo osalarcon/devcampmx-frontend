@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  background: lightcoral;
+  justify-content: center;
+}
+
+.section {
+  background: lightblue;
+  /* 1 vh = 1% alto de pantalla 
+    que sea para definir secciones fullscreen
+    */
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+  width: 50vw;
+}
+
+body {
+  font-size: 18px;
+}
+
+.em {
+  /* Contenedor tamaño de letra */
+  font-size: 1.1em;
+}
+
+.rem {
+  /* Navegador tamaño de letra */
+  font-size: 1.1rem;
+}
+
+.percentage {
+  font-size: 110%;
+}
+
+.pixels {
+  font-size: 17.8px;
+}
