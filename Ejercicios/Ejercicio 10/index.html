@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo-List</title>
+
+
+</head>
+
+<body>
+    <div id="elemento">Texto</div>
+
+    <button onclick="changeText()">Cambiar</button>
+    <button onclick="toogle()">Toogle</button>
+
+    <ol id="lista" class="show">
+    </ol>
+
+    <script>
+        // console.log(document);
+        var miDocumento = document;
+        console.log(miDocumento);
+
+        var elemento = document.getElementById('elemento');
+        var lista = document.getElementById('lista');
+
+        function printContent() {
+            console.log(elemento.innerHTML);
+        }
+
+        printContent();
+
+        function changeText() {
+            elemento.innerHTML = "Texto cambiado";
+        }
+
+        function printSort() {
+            var arreglo = ["leche", "huevos", "atun", "tortillas", "carne", "papas", "tomate"];
+            // Array.from({ length: 20 }, () =>
+            //     Math.floor(Math.random() * 100)
+            // );
+            arreglo.sort();
+            for (var i = 0; i < arreglo.length; i++) {
+                lista.innerHTML += `<li>${arreglo[i]}</li>`;
+            }
+            // arreglo.sort(sortN);
+            // arreglo.forEach((value, index) => {
+            //     lista.innerHTML += `<li>${value}</li>`;
+            // });
+        }
+
+        lista.style.background = "#988989";
+
+        printSort();
+
+        lista.style.display = "block";
+
+        // function toogle() {
+        //     if (lista.style.display == "none") {
+        //         lista.style.display = "block";
+        //     }
+        //     else {
+        //         lista.style.display = "none";
+        //     }
+        // }
+
+        // var flag = false;
+        // function toogle() {
+        //     if (flag) {
+        //         lista.style.display = "block";
+        //         flag = false;
+        //     }
+        //     else {
+        //         lista.style.display = "none";
+        //         flag = true;
+        //     }
+        // }
+
+        function toogle() {
+            if (lista.classList.contains("show")) {
+                lista.className = "hide";
+            }
+            else {
+                lista.className = "show";
+            }
+        }
+
+    </script>
+</body>
+
+</html>

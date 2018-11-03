@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id="app">
+        <!-- <div>
+            {{hello + ' ' + user.name}}
+        </div> -->
+
+        <!-- Directiva variable ligada a input -->
+        <!-- <input type="text" v-model="user.name"> -->
+
+        <!-- <button @click="cambiarSaludo">Cambiar Saludo</button> -->
+
+        <div>
+            {{counter}}
+        </div>
+        <button @click="sumar(10)">suma</button>
+        <button @click="restar(3)">resta</button>
+    </section>
+
+    <section id="directivas">
+        <!-- <div v-if="visible">
+            <p>Estas loguedo</p>
+        </div>
+        <div v-else-if="other">
+            <p>otro</p>
+        </div>
+        <div v-else>
+            <p>No estás logueado</p>
+        </div> -->
+        <button @click="login()">Toogle</button>
+        <br>
+        <input v-model="newTask" type="text" />
+        <button @click="addTask(newTask)">Agregar</button>
+
+        <ul v-for="(tarea, key) in todos">
+            <li>{{ key }} : {{ tarea.tarea }}</li>
+        </ul>
+
+    </section>
+
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

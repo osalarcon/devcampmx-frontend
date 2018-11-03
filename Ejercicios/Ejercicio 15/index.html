@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="app">
+        Mi v-for va a immi_formulario.name && this.mi_formulario.generoprimir {{personas.length}} veces
+        <br>
+        <div class="mini-form">
+            <input v-model="mi_formulario.name" type="text" placeholder="Nombre" />
+            <input v-model="mi_formulario.genero" type="text" placeholder="Genero" />
+            <button v-if="buttonEnabled" @click="addUser(mi_formulario)">Agregar</button>
+        </div>
+
+        <br>
+        <p> {{mi_formulario}} </p>
+
+        <ul v-for="persona in personas">
+            <li>
+                <h1>{{ persona.name }}</h1>
+                <p>{{ genero[persona.genero] }}</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
