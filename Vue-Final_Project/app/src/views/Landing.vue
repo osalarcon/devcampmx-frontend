@@ -1,9 +1,7 @@
 <template>
 <div>
-
     <todo-navbar :viewSelection="'landing'"></todo-navbar>
 
-    
     <router-link to="./Login">Login</router-link>
 </div>
 </template>

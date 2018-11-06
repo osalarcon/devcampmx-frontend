@@ -1,5 +1,5 @@
 {
-  "name": "todo-list",
+  "name": "vuestate",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,9 @@
     "element-ui": "^2.4.9",
     "vue": "^2.5.17",
     "vue-js-modal": "^1.3.26",
-    "vue-router": "^3.0.1"
+    "vue-moment": "^4.0.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.1.0",

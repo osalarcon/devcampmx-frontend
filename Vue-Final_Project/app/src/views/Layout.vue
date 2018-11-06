@@ -1,12 +1,10 @@
 <template>
 <div>
-
     <todo-navbar></todo-navbar>
 
     <div class="main-content">
         <router-view></router-view>
     </div>
-
 </div>
 </template>
 
@@ -14,9 +12,9 @@
 import Navbar from "@/components/Navbar.vue";
 
 export default {
-  components: {
-    "todo-navbar": Navbar
-  }
+    components: {
+        "todo-navbar": Navbar
+    }
 };
 </script>
 

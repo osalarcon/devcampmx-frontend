@@ -1,0 +1,125 @@
+$-primary-color: #36a6ff;
+$-secondary-color: #36a6ff;
+$-background-secondary: #7a32d5;
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.el-date-picker {
+  width: 200px;
+}
+
+.navbar {
+  height: 57px;
+  width: 100vw;
+  -webkit-box-shadow: 0px 5px 8px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 8px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 8px -6px rgba(0, 0, 0, 0.75);
+}
+
+.full-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.full-bottom-end {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.full-bottom-end span {
+  padding-right: 20px;
+}
+
+.full-bottom-center {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.round-input {
+  border: 10%;
+}
+
+.fit-image {
+  width: 100%;
+  height: 100%;
+}
+
+.form-padding {
+  padding-top: 20px;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.no-padding-margin {
+  padding: 0;
+  margin: 0;
+}
+
+.gradient-primary {
+  background: linear-gradient(#7a32d5, #3d196b);
+}
+
+/**
+* Float button
+*/
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: $-background-secondary;
+  color: #fff;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.float-button {
+  font-size: 24px;
+  margin-top: 18px;
+}
+
+a.float + div.label-container {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.float:hover + div.label-container {
+  visibility: visible;
+  opacity: 1;
+}
+/**
+* end float
+*/
+
+/**
+* Task component
+*/
+.task-container {
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px $-primary-color;
+  justify-content: center;
+  padding: 0;
+}
+
+.margin-padding-task {
+  padding: 5px;
+}
+/**
+* End Task Container
+*/
