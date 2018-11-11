@@ -1,4 +1,4 @@
-# vuestate
+# vuetify
 
 ## Project setup
 ```

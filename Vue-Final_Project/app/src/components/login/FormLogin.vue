@@ -18,8 +18,8 @@
                 </el-form-item>
 
                 <el-form-item class="full-center">
-                    <el-button type="primary" @click="submitForm('loginForm')">Submit</el-button>
-                    <el-button @click="resetForm('loginForm')">Reset</el-button>
+                    <el-button type="primary" @click="submitForm('loginForm')">Iniciar sesión</el-button>
+                    <!-- <el-button @click="resetForm('loginForm')">Reset</el-button> -->
                 </el-form-item>
             </el-form>
         </div>
@@ -97,7 +97,7 @@ export default {
                 if (valid) {
                     this.$router.replace('/dashboard');
                 } else {
-                    console.log("error submit!!");
+                    //console.log("error submit!!");
                     return false;
                 }
             });

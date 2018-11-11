@@ -1,93 +1,138 @@
 <template>
-<div>
+<v-layout wrap class="side-menu">
+    <v-container align-start justify-start fill-height>
+        <v-layout>
+            <v-btn flat icon large @click.stop="drawer = !drawer" class="menu-item">
+                <font-awesome-icon icon="bars" fixed-width size="3x" />
+            </v-btn>
+        </v-layout>
+    </v-container>
 
-    <el-button class="hamburger hamburger--collapse absolute" v-bind:class="{ 'is-active': isActive }" @click="collapseMenu()" type="button">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-    </el-button>
+    <v-navigation-drawer v-model="drawer" absolute temporary>
+        <v-list class="pa-1">
+            <v-card class="card-head">
+                <v-container align-center row justify-space-around>
+                    <v-layout justify-space-around align-center row>
+                        <v-flex xs6 sm4>
+                            <v-img :src="logo"></v-img>
+                        </v-flex>
+                    </v-layout>
+                </v-container>
+            </v-card>
+        </v-list>
 
-    <el-menu default-active="1" class="el-menu-vertical" text-color="#fff" active-text-color="#ffd04b" :collapse="!isCollapse">
-        <el-menu-item index="1" style="height:100px" class="gradient-primary full-bottom-end">
-            <span slot="title">ToDoList HOY</span>
-        </el-menu-item>
-        <el-submenu index="2">
-            <template slot="title">
-                <span slot="title">PROYECTOS</span>
-            </template>
-            <el-menu-item-group>
-                <span slot="title">Group One</span>
-                <el-menu-item index="1-1">item one</el-menu-item>
-                <el-menu-item index="1-2">item two</el-menu-item>
-            </el-menu-item-group>
-        </el-submenu>
-        <el-menu-item index="3" class="full-bottom-end">
-            <span slot="title">CERRAR SESIÓN</span>
-        </el-menu-item>
-    </el-menu>
-</div>
+        <v-list class="pt-0" dense>
+            <v-divider></v-divider>
+
+            <v-list-tile v-for="item in items" :key="item.title" @click="collapseMenu(item)" class="menu-container">
+                <v-list-tile-action>
+                    <font-awesome-icon :icon="item.icon" fixed-width size="2x" :style="{color: '#36a6ff'}" />
+                </v-list-tile-action>
+
+                <v-list-tile-content>
+                    <v-list-tile-title class="primary-color">{{ item.title }}</v-list-tile-title>
+                </v-list-tile-content>
+            </v-list-tile>
+        </v-list>
+    </v-navigation-drawer>
+</v-layout>
 </template>
 
 <style lang="scss" scoped>
 @import "@/variables.scss";
-@import "@/style/hamburguers.min.scss";
 
-.hamburger {
-    z-index: 1;
+//Menu Item container
+.container {
+    margin: 0px;
 }
 
-.el-menu-vertical:not(.el-menu--collapse) {
-    width: 200px;
+.menu-container {
+    font-size: 1em;
 }
 
-.el-menu-vertical {
-    background-color: $-secondary-color;
+.side-menu {
     height: 100vh;
-    width: 0px;
+    width: 100vw;
 }
 
-.hamburger-inner[data-v-698cbdac],
-.hamburger-inner[data-v-698cbdac]:after,
-.hamburger-inner[data-v-698cbdac]:before {
-    background-color: $-primary-color;
+@media only screen and (max-width: 375px) {
+    .side-menu {
+        height: 100vh;
+        width: 100vw;
+    }
 }
 
-.hamburger.is-active .hamburger-inner[data-v-698cbdac],
-.hamburger.is-active .hamburger-inner[data-v-698cbdac]:after,
-.hamburger.is-active .hamburger-inner[data-v-698cbdac]:before {
-    background-color: $-primary-color;
+.card-head {
+    background-image: linear-gradient($-background-secondary, $-primary-color);
+    height: 200px;
 }
 
-.el-tooltip, .el-menu-item, .el-submenu {
-    padding: 0 !important;
-    margin: 0 !important;
+.menu-item {
+    color: $-primary-color;
 }
 </style>
 
 <script>
-// import {
-//     mapState,
-//     mapActions
-// } from "vuex";
+import logo from "@/assets/logo.png";
+import {
+    mapActions
+} from "vuex";
 
 export default {
     data() {
         return {
+            logo: logo,
             isCollapse: false,
-            isActive: false
-        }
+            isActive: false,
+            drawer: null,
+            items: [{
+                    id: 0,
+                    title: "Hoy",
+                    icon: "sun"
+                },
+                {
+                    id: 1,
+                    title: "Todos",
+                    icon: "clipboard-list"
+                },
+                {
+                    id: 2,
+                    title: "Terminados",
+                    icon: "calendar-check"
+                },
+                {
+                    id: 3,
+                    title: "Cerrar sesión",
+                    icon: "sign-out-alt"
+                }
+            ]
+        };
     },
     methods: {
         handleOpen(key, keyPath) {
-            console.log(key, keyPath);
+            // console.log(key, keyPath);
         },
         handleClose(key, keyPath) {
-            console.log(key, keyPath);
+            //  console.log(key, keyPath);
         },
-        collapseMenu() {
+        collapseMenu(item) {
+            this.drawer = !this.drawer;
+            switch (item.id) {
+                case 3:
+                    this.setSelection(0);
+                    this.$router.replace('/');
+                    break;
+                default:
+                    this.setSelection(item.id);
+                    break;
+            }
             this.isCollapse = !this.isCollapse;
             this.isActive = !this.isActive;
-        }
+        },
+        ...mapActions([
+            'setSelection',
+            'setDateSelection'
+        ])
     }
 };
 </script>

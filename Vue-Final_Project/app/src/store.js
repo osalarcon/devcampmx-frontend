@@ -5,7 +5,14 @@ Vue.use(Vuex);
 
 const mutations = {
   addTask(state, newTask) {
+    newTask["id"] = state.tasks.length;
     state.tasks.push(newTask);
+  },
+  setSelection(state, selection) {
+    state.menuSelection = selection;
+  },
+  setDateSelection(state, selection) {
+    state.dateSelection = selection;
   }
 };
 
@@ -15,6 +22,12 @@ const actions = {
     setTimeout(function() {
       context.commit("addTask", newTask);
     }, 1000);
+  },
+  setSelection: (context, selection) => {
+    context.commit("setSelection", selection);
+  },
+  setDateSelection: (context, selection) => {
+    context.commit("setDateSelection", selection);
   }
 };
 
@@ -22,15 +35,25 @@ const actions = {
 const getters = {
   allTask: state => {
     return state.tasks;
+  },
+  menuSelection: state => {
+    return state.menuSelection;
   }
 };
 
 export default new Vuex.Store({
   state: {
     tasks: [
-      { id: 1, name: "task 1", date: new Date(), state: 0 },
-      { id: 2, name: "task 2", date: new Date(), state: 0 }
-    ]
+      {
+        id: 0,
+        name: "task 1",
+        date: new Date(2018, 11, 24, 10, 33, 30, 0),
+        state: true
+      },
+      { id: 1, name: "task 2", date: new Date(), state: false }
+    ],
+    dateSelection: '',
+    menuSelection: 0
   },
   getters,
   actions,

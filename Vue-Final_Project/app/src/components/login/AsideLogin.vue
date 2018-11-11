@@ -1,16 +1,15 @@
 <template>
 <section>
-    <!-- 
+
     <video class="fit-image" autoplay="autoplay" loop>
         <source :src="backgroundLogin" type="video/mp4" />
-    </video> 
-    -->
+    </video>
+
 </section>
 </template>
 
 <style lang="scss" scoped>
 @import "@/variables.scss";
-
 </style>
 
 <script>

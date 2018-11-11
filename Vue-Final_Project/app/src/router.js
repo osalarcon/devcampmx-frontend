@@ -17,11 +17,11 @@ export default new Router({
   mode: "history",
   base: process.env.BASE_URL,
   routes: [
-    // {
-    //   path: "/",
-    //   name: "landing",
-    //   component: Landing,
-    // },
+    {
+      path: "/landing",
+      name: "landing",
+      component: Landing,
+    },
     {
       path: "/",
       name: "login",

@@ -1,11 +1,11 @@
 <template>
 <div class="form-padding ">
     <div class="head-register">
-        <el-button icon="el-icon-close" circle></el-button>
+        <el-button icon="el-icon-close" circle @click="hideRegister();"></el-button>
     </div>
 
     <div class="full-center">
-        <h1>Registro</h1>
+        <h1 class="primary-color">Registro</h1>
     </div>
 
     <el-form :model="registerForm" status-icon :rules="ruleLogin" ref="registerForm" class="demo-ruleForm">
@@ -108,12 +108,11 @@ export default {
         },
         submitRegister(formName) {
             this.$refs[formName].validate(valid => {
-              console.log('Es valido: ' + valid);
                 if (valid) {
                     //alert("submit!");
                     this.hideRegister();
                 } else {
-                    console.log("error submit!!");
+                    //console.log("error submit!!");
                     return false;
                 }
             });
