@@ -18,12 +18,12 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/landing",
+      path: "/",
       name: "landing",
       component: Landing,
     },
     {
-      path: "/",
+      path: "/login",
       name: "login",
       component: Login
     },

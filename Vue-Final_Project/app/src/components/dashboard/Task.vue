@@ -1,10 +1,12 @@
 <template>
 <div class="full-center margin-padding-task">
-    <el-card shadow="always" :body-style="{ padding: '0px', width: '100%', backgroundColor:'#e0f1ff' }" class="task-container">
+    <el-card shadow="always" :body-style="{ padding: '0px', width: '100%', backgroundColor:backgroundTask }" class="task-container">
+
         <div class="task-item full-center">
-            <div class="full-center item-state checkbox">
-                <el-checkbox v-model="taskValue.state" size="large" class="full-center checkbox" border></el-checkbox>
+            <div class="item-state">
+                <el-checkbox v-model="taskValue.state" border></el-checkbox>
             </div>
+
             <div class="full-center item item-name card-items">
                 <p>
                     {{taskValue.name}}
@@ -16,6 +18,7 @@
                 </p>
             </div>
         </div>
+
         <!--
         <div class="full-center">
             <p>
@@ -34,9 +37,35 @@
     font-size: 2em;
 }
 
+.item-name {
+    width: 40%;
+    overflow: hidden;
+    display: -webkit-box;
+    line-height: 2em;
+    /* fallback */
+    max-height: 2em;
+    /* fallback */
+    -webkit-line-clamp: 1;
+    /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+
 @media only screen and (max-width: 375px) {
     .card-items {
         font-size: 1em;
+    }
+
+    .item-name {
+        width: 40%;
+        overflow: hidden;
+        display: -webkit-box;
+        line-height: 1em;
+        /* fallback */
+        max-height: 1em;
+        /* fallback */
+        -webkit-line-clamp: 1;
+        /* number of lines to show */
+        -webkit-box-orient: vertical;
     }
 }
 
@@ -76,23 +105,34 @@
     border-color: $-background-secondary;
 }
 
-.item-name {
-    width: 40%;
+.item-date {
+    width: 20%;
+    font-size: 1em;
 }
 
-.item-date {
-    width: 30%;
-    font-size: 1em;
+.el-checkbox.is-bordered.el-checkbox--small {
+    border-color: #7a32d5;
+    color: #7a32d5;
 }
 </style>
 
 <script>
+import {
+    mapState
+} from "vuex";
+
 export default {
     props: ["taskValue"],
     data() {
         return {
             checked: false
         };
-    }
+    },
+    computed: {
+        backgroundTask() {
+            return (this.taskValue.date >= new Date()) || (this.menuSelection == 2) ? '#e0f1ff' : '#ffc107';
+        },
+        ...mapState(["menuSelection"])
+    },
 };
 </script>

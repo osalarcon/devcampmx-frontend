@@ -50,7 +50,7 @@ export default new Vuex.Store({
         date: new Date(2018, 11, 24, 10, 33, 30, 0),
         state: true
       },
-      { id: 1, name: "task 2", date: new Date(), state: false }
+      { id: 1, name: "task 2task 2task 2task 2task 2task 2task 2task 2task 2task 2task 2task 2task 2task 2", date: new Date(), state: false }
     ],
     dateSelection: '',
     menuSelection: 0

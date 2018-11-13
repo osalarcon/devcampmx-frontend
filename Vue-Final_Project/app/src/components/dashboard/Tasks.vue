@@ -1,5 +1,8 @@
 <template>
 <div id="container-task">
+    <div class=" full-center container-title">
+        <h1>{{title}}</h1>
+    </div>
     <v-container grid-list-xl text-xs-center class="scroll-y container-task-scroll">
         <div v-for="taskItem in currentTasks" :key="taskItem.id">
             <Task :taskValue="taskItem"></Task>
@@ -75,6 +78,16 @@ export default {
 
                 }
             );
+        },
+        title() {
+            switch (this.menuSelection) {
+                case 0:
+                    return "Hoy";
+                case 1:
+                    return "Todos";
+                case 2:
+                    return "Terminados";
+            }
         },
         ...mapState(["tasks", "menuSelection", "dateSelection"])
     },
