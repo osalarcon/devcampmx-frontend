@@ -10,7 +10,7 @@
 
     <el-form :model="taskForm" status-icon :rules="ruleLogin" ref="taskForm" class="demo-ruleForm">
         <el-form-item prop="name">
-            <el-input type="text" class="round-input" placeholder="Nombre Completo" v-model="taskForm.name" autocomplete="off"></el-input>
+            <el-input type="text" class="round-input" placeholder="Nombre de la tarea" v-model="taskForm.name" autocomplete="off"></el-input>
         </el-form-item>
 
         <el-form-item prop="date">
